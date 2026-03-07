@@ -98,9 +98,7 @@ export default function Home() {
                 transition={{ delay: i * 0.1 }}
                 className="flex items-start gap-4 p-6 bg-[#ffe8f2]/50 rounded-2xl border border-[#ffe8f2]"
               >
-                <div className="bg-[#c2185b] text-white p-2 rounded-full shrink-0 mt-1">
-                  <Check className="w-4 h-4" />
-                </div>
+                <span className="text-2xl shrink-0 mt-0.5">❌</span>
                 <p className="text-foreground/80 font-medium leading-relaxed">{text}</p>
               </motion.div>
             ))}
