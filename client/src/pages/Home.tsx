@@ -364,7 +364,8 @@ export default function Home() {
                 <span className="text-2xl font-bold text-[#c2185b]">Por</span>
                 <span className="text-5xl font-black text-[#c2185b]">R$ 187</span>
               </div>
-              <p className="text-sm text-green-600 font-bold mt-4">✓ Pagamento na Entrega (SP)</p>
+              <p className="text-sm font-bold text-[#c2185b] mt-3">O melhor custo-benefício do mercado</p>
+              <p className="text-sm text-green-600 font-bold mt-2">✓ Pagamento na Entrega (SP)</p>
             </div>
 
             <a 
@@ -401,7 +402,8 @@ export default function Home() {
                 <span className="text-2xl font-bold text-[#c2185b]">Por</span>
                 <span className="text-6xl font-black text-[#c2185b]">R$ 247</span>
               </div>
-              <p className="text-green-600 font-bold mt-4 flex items-center justify-center gap-1">
+              <p className="text-sm font-bold text-[#c2185b] mt-3">R$123,50 por unidade — Economia máxima</p>
+              <p className="text-green-600 font-bold mt-2 flex items-center justify-center gap-1">
                 <CheckCircle2 className="w-4 h-4" /> Pagamento na Entrega (SP)
               </p>
             </div>
