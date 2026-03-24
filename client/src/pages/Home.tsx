@@ -328,7 +328,7 @@ export default function Home() {
           <div className="flex items-center gap-4">
             <Clock className="w-10 h-10 shrink-0" />
             <div>
-              <h4 className="font-bold text-xl">Atenção: Alta Procura Recente</h4>
+              <h4 className="font-bold text-xl text-white">Atenção: Alta Procura Recente</h4>
               <p className="text-white/90 text-sm mt-1">Nossos lotes são limitados. Garanta o seu hoje para envio rápido.</p>
             </div>
           </div>
