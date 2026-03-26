@@ -477,8 +477,26 @@ export default function Home() {
       {/* 13. Final CTA & Footer */}
       <section className="py-20 px-4 sm:px-6 bg-[#ffe8f2] text-center border-t border-[#c2185b]/10">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-[#c2185b]">Sua pele merece esse cuidado diário.</h2>
-          <p className="text-xl text-foreground/80 mb-10">Não adie mais o resgate da sua confiança. Dê o primeiro passo hoje.</p>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-[#c2185b]">A decisão que muda o seu despertar.</h2>
+          <div className="text-left mb-10 space-y-5">
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              Continuar adiando esse cuidado tem um preço que não está na etiqueta: é o custo de mais meses se escondendo atrás de filtros e camadas de maquiagem.
+            </p>
+            <div className="space-y-3">
+              <p className="text-lg font-semibold text-foreground/90">
+                <span className="text-[#c2185b] font-bold">O Ontem:</span> Você já tentou de tudo e a frustração continuou.
+              </p>
+              <p className="text-lg font-semibold text-foreground/90">
+                <span className="text-[#c2185b] font-bold">O Hoje:</span> Você tem a chance de interromper esse ciclo com o Aurora Pink.
+              </p>
+              <p className="text-lg font-semibold text-foreground/90">
+                <span className="text-[#c2185b] font-bold">O Amanhã:</span> Acordar, olhar no espelho e finalmente sorrir para o que vê.
+              </p>
+            </div>
+            <p className="text-xl font-bold text-[#c2185b] text-center pt-2">
+              Não é apenas um clareador. É a sua liberdade de volta.
+            </p>
+          </div>
           <button 
             onClick={scrollToOffers}
             className="w-full sm:w-auto px-10 py-6 rounded-2xl font-bold text-xl bg-[#c2185b] text-white shadow-[0_8px_30px_rgb(194,24,91,0.4)] hover:shadow-[0_8px_40px_rgb(194,24,91,0.6)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 mx-auto"
