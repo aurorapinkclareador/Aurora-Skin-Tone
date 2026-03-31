@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "E0cZeVWtWCoMuw1rJLH0f"
+uri = "file://aurora-pink-site.tar.gz"
+type = "unspecified"
+title = "Aurora Pink — Arquivos do Site (para Netlify)"
