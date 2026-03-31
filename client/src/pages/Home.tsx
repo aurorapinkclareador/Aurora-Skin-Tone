@@ -67,7 +67,7 @@ export default function Home() {
             className="mt-16 max-w-lg mx-auto relative"
           >
             <div className="absolute inset-0 bg-gradient-to-t from-[#ffe8f2] via-transparent to-transparent z-10" />
-            <img src={img6} alt="Aurora Pink" className="w-full h-auto drop-shadow-2xl relative z-0" />
+            <img src={img6} alt="Aurora Pink" className="w-full h-auto drop-shadow-2xl relative z-0" loading="eager" fetchPriority="high" />
           </motion.div>
         </div>
       </section>
@@ -119,7 +119,7 @@ export default function Home() {
       <section className="py-20 px-4 sm:px-6 relative overflow-hidden">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
-            <img src={img4} alt="Uso prático do Aurora Pink" className="rounded-3xl shadow-2xl w-full object-cover aspect-[4/5]" />
+            <img src={img4} alt="Uso prático do Aurora Pink" className="rounded-3xl shadow-2xl w-full object-cover aspect-[4/5]" loading="lazy" />
           </motion.div>
           
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
@@ -189,7 +189,7 @@ export default function Home() {
                 transition={{ delay: i * 0.2 }}
                 className="relative rounded-2xl overflow-hidden shadow-xl group border-4 border-white"
               >
-                <img src={img} alt="Antes e Depois do uso de Aurora Pink" className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img src={img} alt="Antes e Depois do uso de Aurora Pink" className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
                 <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white px-3 py-1 rounded-md text-xs font-bold tracking-wider">ANTES</div>
                 <div className="absolute bottom-4 right-4 bg-[#c2185b] text-white px-4 py-1.5 rounded-md text-sm font-bold tracking-wider shadow-lg">DEPOIS</div>
               </motion.div>
@@ -355,7 +355,7 @@ export default function Home() {
             </div>
             
             <div className="flex justify-center mb-6 h-48">
-              <img src={img5} alt="1 Unidade Aurora Pink" className="h-full object-contain" />
+              <img src={img5} alt="1 Unidade Aurora Pink" className="h-full object-contain" loading="lazy" />
             </div>
 
             <div className="text-center mb-8 flex-grow">
@@ -392,8 +392,8 @@ export default function Home() {
             </div>
             
             <div className="flex justify-center mb-6 h-48 relative">
-              <img src={img5} alt="Aurora Pink" className="h-full object-contain -mr-8 z-10" />
-              <img src={img5} alt="Aurora Pink" className="h-full object-contain" />
+              <img src={img5} alt="Aurora Pink" className="h-full object-contain -mr-8 z-10" loading="lazy" />
+              <img src={img5} alt="Aurora Pink" className="h-full object-contain" loading="lazy" />
             </div>
 
             <div className="text-center mb-8 flex-grow">
