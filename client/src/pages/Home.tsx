@@ -137,11 +137,13 @@ export default function Home() {
           </div>
 
           {/* Social proof bar */}
-          <div className="flex items-center justify-center gap-6 mt-8 flex-wrap">
-            <div className="flex items-center gap-2 bg-white/80 border border-[#c2185b]/15 rounded-full px-5 py-2.5 shadow-sm">
+          <div className="flex items-center justify-center gap-4 mt-8 flex-wrap">
+            <div className="flex items-center gap-2.5 bg-white/80 border border-[#c2185b]/15 rounded-full px-5 py-2.5 shadow-sm">
               <div className="flex -space-x-2">
-                {["47","44","49"].map(n => (
-                  <img key={n} src={`https://i.pravatar.cc/32?img=${n}`} alt="cliente" className="w-7 h-7 rounded-full border-2 border-white" loading="lazy" />
+                {[["AO","from-[#c2185b] to-[#e91e8c]"],["JM","from-[#ad1457] to-[#c2185b]"],["BC","from-[#e91e8c] to-[#f06292]"]].map(([init, grad]) => (
+                  <div key={init} className={`w-7 h-7 rounded-full bg-gradient-to-br ${grad} border-2 border-white flex items-center justify-center shrink-0`}>
+                    <span className="text-white font-black text-[9px]">{init}</span>
+                  </div>
                 ))}
               </div>
               <span className="text-sm font-bold text-foreground/80"><span className="text-[#c2185b]">+3.200</span> clientes satisfeitas</span>
@@ -344,22 +346,46 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { name: "Ana Oliveira", age: "34 anos", city: "São Paulo - SP", text: "A melhora na aparência da pele foi incrível. Achei que seria mais um produto que ficaria no armário, mas é muito fácil de usar e estou super satisfeita com os resultados.", avatar: "https://i.pravatar.cc/80?img=47" },
-              { name: "Juliana Mendes", age: "29 anos", city: "Campinas - SP", text: "Sempre tive insegurança com algumas áreas da pele com escurecimento. Usar vestidos regata era um problema. O Aurora Pink devolveu minha confiança!", avatar: "https://i.pravatar.cc/80?img=44" },
-              { name: "Beatriz Costa", age: "42 anos", city: "São Bernardo do Campo - SP", text: "Finalmente uma rotina simples de autocuidado que realmente ajuda. Faço a aplicação à noite antes de dormir e a textura da pele mudou completamente.", avatar: "https://i.pravatar.cc/80?img=49" }
+              {
+                name: "Ana Oliveira",
+                initials: "AO",
+                age: "34 anos",
+                city: "Moema, São Paulo - SP",
+                highlight: "Usei por 3 semanas antes do casamento da minha prima",
+                text: "Eu tinha manchas escuras que me incomodavam faz tempo. Comecei a usar o Aurora Pink toda noite, antes de dormir. Na terceira semana, olhei no espelho e vi uma diferença real. No casamento, usei um vestido sem manga pela primeira vez em anos. Isso não tem preço."
+              },
+              {
+                name: "Juliana Mendes",
+                initials: "JM",
+                age: "29 anos",
+                city: "Cambuí, Campinas - SP",
+                highlight: "Voltei a usar roupas de academia sem me esconder",
+                text: "Parei de ir às aulas de ginástica que eu amava porque não queria expor minha pele. Comecei o Aurora Pink sem muita expectativa. Depois de um mês de uso diário, voltei para a academia, de legging curta, sem aquela ansiedade de antes. Minha autoestima voltou junto."
+              },
+              {
+                name: "Beatriz Costa",
+                initials: "BC",
+                age: "42 anos",
+                city: "Centro, São Bernardo do Campo - SP",
+                highlight: "Produto chegou em menos de 24h, sem pagar nada na hora",
+                text: "Pedi na segunda à tarde e na terça de manhã estava na minha porta. Paguei só na entrega, o que me deu muito mais segurança. Uso toda manhã depois do banho, são literalmente 30 segundos. Em cinco semanas a pele ficou visivelmente mais uniforme. Vale cada centavo."
+              }
             ].map((t, i) => (
-              <FadeIn key={i} delay={i * 100} className="bg-white p-8 rounded-3xl shadow-lg border border-[#ffe8f2] flex flex-col justify-between">
+              <FadeIn key={i} delay={i * 100} className="bg-white p-7 rounded-3xl shadow-lg border border-[#ffe8f2] flex flex-col justify-between">
                 <div>
-                  <div className="flex gap-1 mb-4">
-                    {[1,2,3,4,5].map(s => <Star key={s} className="w-5 h-5 fill-current text-yellow-400" />)}
+                  <div className="flex gap-1 mb-3">
+                    {[1,2,3,4,5].map(s => <Star key={s} className="w-4 h-4 fill-current text-yellow-400" />)}
                   </div>
-                  <p className="text-foreground/80 italic mb-6 leading-relaxed">"{t.text}"</p>
+                  <p className="text-[#c2185b] font-semibold text-sm mb-3 italic">"{t.highlight}"</p>
+                  <p className="text-foreground/75 text-sm mb-5 leading-relaxed">{t.text}</p>
                 </div>
-                <div className="flex items-center gap-3 mt-2">
-                  <img src={t.avatar} alt={t.name} className="w-12 h-12 rounded-full border-2 border-[#c2185b]/20 bg-[#fce4ec] shrink-0" loading="lazy" />
+                <div className="flex items-center gap-3 pt-4 border-t border-[#ffe8f2]">
+                  <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#c2185b] to-[#e91e8c] flex items-center justify-center shrink-0 shadow-sm">
+                    <span className="text-white font-black text-sm tracking-tight">{t.initials}</span>
+                  </div>
                   <div>
-                    <p className="font-bold text-lg text-[#c2185b]">{t.name}</p>
-                    <p className="text-sm text-foreground/60">{t.age} • {t.city}</p>
+                    <p className="font-bold text-[#c2185b]">{t.name}</p>
+                    <p className="text-xs text-foreground/55">{t.age} • {t.city}</p>
                   </div>
                 </div>
               </FadeIn>
