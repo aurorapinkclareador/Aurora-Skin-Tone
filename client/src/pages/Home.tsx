@@ -2,12 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import { Star, CheckCircle2, ShieldCheck, Clock, Check, ArrowRight } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
-import img1 from '@assets/1771444174461_(1)_(1)_1772907989128.png';
-import img2 from '@assets/9e6410937fcccfa055cfa50775157e41_(1)_1772907989228.jpg';
-import img3 from '@assets/5eef4124b14af4c7c6c76c3e12494139_(1)_1772907989264.jpg';
-import img4 from '@assets/1b8a1241_(1)_(1)_1772907989338.jpg';
-import img5 from '@assets/AURORA_-_Ft_08_(1)_(2)_1772907989390.png';
-import img6 from '@assets/AURORA_-_Ft_15_(2)_1772908021801.png';
+import img1 from '@assets/before_after_1.webp';
+import img2 from '@assets/before_after_3.webp';
+import img3 from '@assets/before_after_2.webp';
+import img4 from '@assets/story.webp';
+import img5 from '@assets/product.webp';
+import img6 from '@assets/hero.webp';
 
 function FadeIn({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
