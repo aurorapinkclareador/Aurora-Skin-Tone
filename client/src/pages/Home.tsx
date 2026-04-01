@@ -8,6 +8,9 @@ import img3 from '@assets/before_after_2.webp';
 import img4 from '@assets/story.webp';
 import img5 from '@assets/product.webp';
 import img6 from '@assets/hero.webp';
+import avatarAna from '@assets/avatar_ana.webp';
+import avatarJuliana from '@assets/avatar_juliana.webp';
+import avatarBeatriz from '@assets/avatar_beatriz.webp';
 
 function FadeIn({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -140,10 +143,8 @@ export default function Home() {
           <div className="flex items-center justify-center gap-4 mt-8 flex-wrap">
             <div className="flex items-center gap-2.5 bg-white/80 border border-[#c2185b]/15 rounded-full px-5 py-2.5 shadow-sm">
               <div className="flex -space-x-2">
-                {[["AO","from-[#c2185b] to-[#e91e8c]"],["JM","from-[#ad1457] to-[#c2185b]"],["BC","from-[#e91e8c] to-[#f06292]"]].map(([init, grad]) => (
-                  <div key={init} className={`w-7 h-7 rounded-full bg-gradient-to-br ${grad} border-2 border-white flex items-center justify-center shrink-0`}>
-                    <span className="text-white font-black text-[9px]">{init}</span>
-                  </div>
+                {[avatarAna, avatarJuliana, avatarBeatriz].map((av, idx) => (
+                  <img key={idx} src={av} alt="cliente" className="w-7 h-7 rounded-full object-cover border-2 border-white shrink-0" loading="lazy" />
                 ))}
               </div>
               <span className="text-sm font-bold text-foreground/80"><span className="text-[#c2185b]">+3.200</span> clientes satisfeitas</span>
@@ -348,7 +349,7 @@ export default function Home() {
             {[
               {
                 name: "Ana Oliveira",
-                initials: "AO",
+                avatar: avatarAna,
                 age: "34 anos",
                 city: "Moema, São Paulo - SP",
                 highlight: "Usei por 3 semanas antes do casamento da minha prima",
@@ -356,7 +357,7 @@ export default function Home() {
               },
               {
                 name: "Juliana Mendes",
-                initials: "JM",
+                avatar: avatarJuliana,
                 age: "29 anos",
                 city: "Cambuí, Campinas - SP",
                 highlight: "Voltei a usar roupas de academia sem me esconder",
@@ -364,7 +365,7 @@ export default function Home() {
               },
               {
                 name: "Beatriz Costa",
-                initials: "BC",
+                avatar: avatarBeatriz,
                 age: "42 anos",
                 city: "Centro, São Bernardo do Campo - SP",
                 highlight: "Produto chegou em menos de 24h, sem pagar nada na hora",
@@ -380,9 +381,7 @@ export default function Home() {
                   <p className="text-foreground/75 text-sm mb-5 leading-relaxed">{t.text}</p>
                 </div>
                 <div className="flex items-center gap-3 pt-4 border-t border-[#ffe8f2]">
-                  <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#c2185b] to-[#e91e8c] flex items-center justify-center shrink-0 shadow-sm">
-                    <span className="text-white font-black text-sm tracking-tight">{t.initials}</span>
-                  </div>
+                  <img src={t.avatar} alt={t.name} className="w-11 h-11 rounded-full object-cover border-2 border-[#c2185b]/20 shrink-0" loading="lazy" />
                   <div>
                     <p className="font-bold text-[#c2185b]">{t.name}</p>
                     <p className="text-xs text-foreground/55">{t.age} • {t.city}</p>

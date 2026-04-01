@@ -1,5 +1,22 @@
 uploads = []
-generated = []
+
+[[generated]]
+id = "FoVQoR9v5H9zSwYClcMVr"
+uri = "file://attached_assets/avatar_ana.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "enS2h1D_DiYbG-0l1ntyI"
+uri = "file://attached_assets/avatar_juliana.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "vqsHecWapfM4dMZj8vQTm"
+uri = "file://attached_assets/avatar_beatriz.png"
+type = "image"
+title = "generated_image"
 
 [[outputs]]
 id = "E0cZeVWtWCoMuw1rJLH0f"
