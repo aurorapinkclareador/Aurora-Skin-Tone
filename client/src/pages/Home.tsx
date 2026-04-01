@@ -283,19 +283,22 @@ export default function Home() {
                 name: "Ana Oliveira",
                 age: "34 anos",
                 city: "São Paulo - SP",
-                text: "A melhora na aparência da pele foi incrível. Achei que seria mais um produto que ficaria no armário, mas é muito fácil de usar e estou super satisfeita com os resultados."
+                text: "A melhora na aparência da pele foi incrível. Achei que seria mais um produto que ficaria no armário, mas é muito fácil de usar e estou super satisfeita com os resultados.",
+                avatar: "https://api.dicebear.com/9.x/lorelei/svg?seed=AnaOliveira&backgroundColor=fce4ec&radius=50"
               },
               {
                 name: "Juliana Mendes",
                 age: "29 anos",
                 city: "Campinas - SP",
-                text: "Sempre tive insegurança com algumas áreas da pele com escurecimento. Usar vestidos regata era um problema. O Aurora Pink devolveu minha confiança!"
+                text: "Sempre tive insegurança com algumas áreas da pele com escurecimento. Usar vestidos regata era um problema. O Aurora Pink devolveu minha confiança!",
+                avatar: "https://api.dicebear.com/9.x/lorelei/svg?seed=JulianaMendes&backgroundColor=fce4ec&radius=50"
               },
               {
                 name: "Beatriz Costa",
                 age: "42 anos",
                 city: "São Bernardo do Campo - SP",
-                text: "Finalmente uma rotina simples de autocuidado que realmente ajuda. Faço a aplicação à noite antes de dormir e a textura da pele mudou completamente."
+                text: "Finalmente uma rotina simples de autocuidado que realmente ajuda. Faço a aplicação à noite antes de dormir e a textura da pele mudou completamente.",
+                avatar: "https://api.dicebear.com/9.x/lorelei/svg?seed=BeatrizCosta&backgroundColor=fce4ec&radius=50"
               }
             ].map((testimonial, i) => (
               <motion.div 
@@ -312,9 +315,17 @@ export default function Home() {
                   </div>
                   <p className="text-foreground/80 italic mb-6 leading-relaxed">"{testimonial.text}"</p>
                 </div>
-                <div>
-                  <p className="font-bold text-lg text-[#c2185b]">{testimonial.name}</p>
-                  <p className="text-sm text-foreground/60">{testimonial.age} • {testimonial.city}</p>
+                <div className="flex items-center gap-3 mt-2">
+                  <img
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
+                    className="w-12 h-12 rounded-full border-2 border-[#c2185b]/20 bg-[#fce4ec] shrink-0"
+                    loading="lazy"
+                  />
+                  <div>
+                    <p className="font-bold text-lg text-[#c2185b]">{testimonial.name}</p>
+                    <p className="text-sm text-foreground/60">{testimonial.age} • {testimonial.city}</p>
+                  </div>
                 </div>
               </motion.div>
             ))}
