@@ -36,8 +36,48 @@ function FadeIn({ children, className = "", delay = 0 }: { children: React.React
   );
 }
 
+function useCountdown() {
+  const getInitial = () => {
+    const saved = sessionStorage.getItem('aurora_timer');
+    if (saved) {
+      const { end } = JSON.parse(saved);
+      const remaining = Math.floor((end - Date.now()) / 1000);
+      if (remaining > 0) return remaining;
+    }
+    const seconds = Math.floor(Math.random() * 601) + 1200; // 20–30 min
+    sessionStorage.setItem('aurora_timer', JSON.stringify({ end: Date.now() + seconds * 1000 }));
+    return seconds;
+  };
+
+  const [secs, setSecs] = useState<number>(0);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const initial = getInitial();
+    setSecs(initial);
+    setReady(true);
+    const interval = setInterval(() => {
+      setSecs(prev => {
+        if (prev <= 1) {
+          const reset = 900 + Math.floor(Math.random() * 300); // 15–20 min reset
+          sessionStorage.setItem('aurora_timer', JSON.stringify({ end: Date.now() + reset * 1000 }));
+          return reset;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const h = String(Math.floor(secs / 3600)).padStart(2, '0');
+  const m = String(Math.floor((secs % 3600) / 60)).padStart(2, '0');
+  const s = String(secs % 60).padStart(2, '0');
+  return { h, m, s, ready };
+}
+
 export default function Home() {
   const [showSticky, setShowSticky] = useState(false);
+  const { h, m, s, ready } = useCountdown();
 
   const scrollToOffers = () => {
     document.getElementById('ofertas')?.scrollIntoView({ behavior: 'smooth' });
@@ -94,6 +134,22 @@ export default function Home() {
           </button>
           <div className="flex items-center justify-center gap-2 mt-4 text-sm text-[#c2185b] font-medium">
             <ShieldCheck className="w-4 h-4" /> Pagamento Seguro na Entrega
+          </div>
+
+          {/* Social proof bar */}
+          <div className="flex items-center justify-center gap-6 mt-8 flex-wrap">
+            <div className="flex items-center gap-2 bg-white/80 border border-[#c2185b]/15 rounded-full px-5 py-2.5 shadow-sm">
+              <div className="flex -space-x-2">
+                {["47","44","49"].map(n => (
+                  <img key={n} src={`https://i.pravatar.cc/32?img=${n}`} alt="cliente" className="w-7 h-7 rounded-full border-2 border-white" loading="lazy" />
+                ))}
+              </div>
+              <span className="text-sm font-bold text-foreground/80"><span className="text-[#c2185b]">+3.200</span> clientes satisfeitas</span>
+            </div>
+            <div className="flex items-center gap-1.5 bg-white/80 border border-[#c2185b]/15 rounded-full px-5 py-2.5 shadow-sm">
+              {[1,2,3,4,5].map(s => <Star key={s} className="w-4 h-4 fill-current text-yellow-400" />)}
+              <span className="text-sm font-bold text-foreground/80 ml-1">4.9/5</span>
+            </div>
           </div>
 
           <div className="mt-16 max-w-lg mx-auto relative">
@@ -312,14 +368,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 12. Urgency */}
+      {/* 12. Urgency + Countdown Timer */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 -mb-10 relative z-20">
-        <div className="bg-[#ff2b2b] text-white rounded-2xl p-6 shadow-xl flex items-center gap-4">
-          <Clock className="w-10 h-10 shrink-0" />
-          <div>
-            <h4 className="font-bold text-xl text-white">Atenção: Alta Procura Recente</h4>
-            <p className="text-white/90 text-sm mt-1">Nossos lotes são limitados. Garanta o seu hoje para envio rápido.</p>
+        <div className="bg-[#ff2b2b] text-white rounded-2xl p-6 shadow-xl">
+          <div className="flex items-center gap-4 mb-4">
+            <Clock className="w-8 h-8 shrink-0" />
+            <div>
+              <h4 className="font-bold text-xl text-white">Atenção: Oferta por Tempo Limitado</h4>
+              <p className="text-white/90 text-sm mt-0.5">Após esse prazo, o preço retorna ao valor original.</p>
+            </div>
           </div>
+          {ready && (
+            <div className="flex items-center justify-center gap-3">
+              {[{ v: h, l: "Horas" }, { v: m, l: "Min" }, { v: s, l: "Seg" }].map(({ v, l }, i) => (
+                <div key={i} className="flex flex-col items-center">
+                  <div className="bg-white/20 rounded-xl px-4 py-3 min-w-[64px] text-center">
+                    <span className="text-4xl font-black tabular-nums">{v}</span>
+                  </div>
+                  <span className="text-xs font-semibold text-white/80 mt-1 uppercase tracking-wider">{l}</span>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
