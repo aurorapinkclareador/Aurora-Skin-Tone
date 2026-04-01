@@ -352,6 +352,7 @@ export default function Home() {
             </div>
             <a
               href="https://entrega.logzz.com.br/pay/memr8ydd3/ocjfr-1-unidade"
+              onClick={() => (window as any).fbq?.('track', 'InitiateCheckout', { content_name: 'Aurora Pink 1 Unidade', currency: 'BRL', value: 187.00, num_items: 1 })}
               className="block w-full py-5 rounded-2xl font-bold text-lg bg-gray-900 text-white text-center shadow-lg hover:bg-black hover:shadow-xl transition-all duration-300"
             >
               Comprar 1 Unidade
@@ -385,6 +386,7 @@ export default function Home() {
             </div>
             <a
               href="https://entrega.logzz.com.br/pay/memr8ydd3/2-unidades-r24700"
+              onClick={() => (window as any).fbq?.('track', 'InitiateCheckout', { content_name: 'Aurora Pink 2 Unidades', currency: 'BRL', value: 247.00, num_items: 2 })}
               className="block w-full py-5 rounded-2xl font-bold text-xl bg-[#c2185b] text-white text-center shadow-[0_8px_30px_rgb(194,24,91,0.4)] hover:shadow-[0_8px_40px_rgb(194,24,91,0.6)] hover:-translate-y-1 transition-all duration-300"
             >
               Comprar 2 Unidades
