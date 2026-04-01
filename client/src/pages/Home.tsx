@@ -284,21 +284,21 @@ export default function Home() {
                 age: "34 anos",
                 city: "São Paulo - SP",
                 text: "A melhora na aparência da pele foi incrível. Achei que seria mais um produto que ficaria no armário, mas é muito fácil de usar e estou super satisfeita com os resultados.",
-                avatar: "https://api.dicebear.com/9.x/lorelei/svg?seed=AnaOliveira&backgroundColor=fce4ec&radius=50"
+                avatar: "https://i.pravatar.cc/80?img=47"
               },
               {
                 name: "Juliana Mendes",
                 age: "29 anos",
                 city: "Campinas - SP",
                 text: "Sempre tive insegurança com algumas áreas da pele com escurecimento. Usar vestidos regata era um problema. O Aurora Pink devolveu minha confiança!",
-                avatar: "https://api.dicebear.com/9.x/lorelei/svg?seed=JulianaMendes&backgroundColor=fce4ec&radius=50"
+                avatar: "https://i.pravatar.cc/80?img=44"
               },
               {
                 name: "Beatriz Costa",
                 age: "42 anos",
                 city: "São Bernardo do Campo - SP",
                 text: "Finalmente uma rotina simples de autocuidado que realmente ajuda. Faço a aplicação à noite antes de dormir e a textura da pele mudou completamente.",
-                avatar: "https://api.dicebear.com/9.x/lorelei/svg?seed=BeatrizCosta&backgroundColor=fce4ec&radius=50"
+                avatar: "https://i.pravatar.cc/80?img=49"
               }
             ].map((testimonial, i) => (
               <motion.div 
