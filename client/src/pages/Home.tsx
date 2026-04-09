@@ -109,7 +109,7 @@ export default function Home() {
 
       {/* 0. Top Trust Bar */}
       <div className="trust-bar shadow-sm relative z-40">
-        Pagamento na entrega para quem mora em São Paulo
+        Pagamento na entrega para todo o estado de São Paulo
       </div>
       <div className="bg-white border-b border-[#c2185b]/10">
         <p className="text-center py-2.5 text-sm md:text-base font-medium text-[#c2185b]">
