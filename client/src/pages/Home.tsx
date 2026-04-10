@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Star, CheckCircle2, ShieldCheck, Clock, Check, ArrowRight } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-
 import img1 from '@assets/before_after_1.webp';
 import img2 from '@assets/before_after_3.webp';
 import img3 from '@assets/before_after_2.webp';
@@ -11,6 +10,39 @@ import img6 from '@assets/hero.webp';
 import avatarAna from '@assets/avatar_ana.webp';
 import avatarJuliana from '@assets/avatar_juliana.webp';
 import avatarBeatriz from '@assets/avatar_beatriz.webp';
+
+function getCookie(name: string): string {
+  return document.cookie.split("; ").find(r => r.startsWith(name + "="))?.split("=")[1] || "";
+}
+
+function genEventId(): string {
+  return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+}
+
+async function trackEvent(
+  eventName: string,
+  pixelData: Record<string, unknown> = {},
+  capiExtra: Record<string, unknown> = {}
+) {
+  const eventId = genEventId();
+  const fbq = (window as any).fbq;
+  if (fbq) fbq("track", eventName, pixelData, { eventID: eventId });
+
+  try {
+    await fetch("/api/capi", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        eventName,
+        eventId,
+        sourceUrl: window.location.href,
+        fbp: getCookie("_fbp"),
+        fbc: getCookie("_fbc"),
+        ...capiExtra,
+      }),
+    });
+  } catch (_) {}
+}
 
 function FadeIn({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -90,6 +122,13 @@ export default function Home() {
     const handleScroll = () => setShowSticky(window.scrollY > 400);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    trackEvent(
+      "ViewContent",
+      { content_name: "Aurora Pink", content_category: "Skin Care", content_ids: ["aurora-pink"], content_type: "product", currency: "BRL", value: 187.00 },
+    );
   }, []);
 
   return (
@@ -447,7 +486,7 @@ export default function Home() {
             </div>
             <a
               href="https://entrega.logzz.com.br/pay/memr8ydd3/ocjfr-1-unidade"
-              onClick={() => (window as any).fbq?.('track', 'InitiateCheckout', { content_name: 'Aurora Pink 1 Unidade', currency: 'BRL', value: 187.00, num_items: 1 })}
+              onClick={() => trackEvent("InitiateCheckout", { currency: "BRL", value: 187.00, num_items: 1 }, { content_name: "Aurora Pink 1 Unidade", value: 187.00, num_items: 1 })}
               className="block w-full py-5 rounded-2xl font-bold text-lg bg-gray-900 text-white text-center shadow-lg hover:bg-black hover:shadow-xl transition-all duration-300"
             >
               Comprar 1 Unidade
@@ -481,7 +520,7 @@ export default function Home() {
             </div>
             <a
               href="https://entrega.logzz.com.br/pay/memr8ydd3/2-unidades-r24700"
-              onClick={() => (window as any).fbq?.('track', 'InitiateCheckout', { content_name: 'Aurora Pink 2 Unidades', currency: 'BRL', value: 247.00, num_items: 2 })}
+              onClick={() => trackEvent("InitiateCheckout", { currency: "BRL", value: 247.00, num_items: 2 }, { content_name: "Aurora Pink 2 Unidades", value: 247.00, num_items: 2 })}
               className="block w-full py-5 rounded-2xl font-bold text-xl bg-[#c2185b] text-white text-center shadow-[0_8px_30px_rgb(194,24,91,0.4)] hover:shadow-[0_8px_40px_rgb(194,24,91,0.6)] hover:-translate-y-1 transition-all duration-300"
             >
               Comprar 2 Unidades
