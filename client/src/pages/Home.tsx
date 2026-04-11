@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { Star, CheckCircle2, ShieldCheck, Clock, Check, ArrowRight, Lock } from "lucide-react";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import img1 from '@assets/before_after_1.webp';
 import img2 from '@assets/before_after_3.webp';
 import img3 from '@assets/before_after_2.webp';
@@ -566,34 +565,42 @@ export default function Home() {
             <p className="text-lg text-foreground/70">Tudo o que você precisa saber antes de fazer seu pedido.</p>
           </div>
 
-          <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="item-1">
-              <AccordionTrigger className="text-lg">Aurora Pink funciona para todos os tipos de pele?</AccordionTrigger>
-              <AccordionContent className="text-base">Foi desenvolvido para diferentes tipos de pele. Os resultados podem variar de pessoa para pessoa, respeitando as características únicas do seu corpo.</AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-2">
-              <AccordionTrigger className="text-lg">Em quanto tempo posso perceber melhora?</AccordionTrigger>
-              <AccordionContent className="text-base">A maioria das clientes começa a notar uma diferença visual entre a <strong>3ª e a 5ª semana</strong> de uso diário. O resultado depende do tipo de pele e da consistência da rotina — quem usa todo dia, sem pular, tende a ver mudanças mais rápidas. O ideal é manter o uso por pelo menos 60 dias para resultados mais duradouros.</AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-3">
-              <AccordionTrigger className="text-lg">Como aplicar?</AccordionTrigger>
-              <AccordionContent className="text-base">Aplique uma pequena quantidade nas áreas com manchas ou escurecimento e massageie suavemente até absorver. Ideal para uso diário, preferencialmente à noite.</AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-4">
-              <AccordionTrigger className="text-lg">Posso usar todos os dias?</AccordionTrigger>
-              <AccordionContent className="text-base">Sim, o uso diário faz parte da rotina recomendada. É justamente a consistência que garante os melhores resultados ao longo do tempo.</AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-5">
-              <AccordionTrigger className="text-lg">Qual o prazo de entrega?</AccordionTrigger>
-              <AccordionContent className="text-base">O prazo de entrega é de 4 a 15 dias úteis após a confirmação do pedido, para todo o Brasil. O frete é 100% grátis.</AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-6">
-              <AccordionTrigger className="text-lg">Este site é seguro? Posso confiar?</AccordionTrigger>
-              <AccordionContent className="text-base">
-                Sim, e com toda a confiança. O checkout é processado pela <strong>Coinzz</strong>, uma plataforma de pagamento regulamentada, auditada e utilizada por milhares de lojistas em todo o Brasil. Seus dados bancários e pessoais são protegidos com <strong>criptografia SSL de ponta a ponta</strong> — o mesmo padrão de segurança dos maiores bancos do país. Nenhuma informação do seu cartão fica armazenada em nosso sistema. Após a compra, você recebe uma confirmação imediata por e-mail com todos os detalhes do seu pedido. Comprar aqui é tão seguro quanto comprar em qualquer grande loja online — com a vantagem de ser um produto exclusivo que você não encontra em outro lugar.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
+          <div className="divide-y divide-gray-100 border border-gray-100 rounded-2xl overflow-hidden">
+            {[
+              {
+                q: "Aurora Pink funciona para todos os tipos de pele?",
+                a: "Foi desenvolvido para diferentes tipos de pele. Os resultados podem variar de pessoa para pessoa, respeitando as características únicas do seu corpo."
+              },
+              {
+                q: "Em quanto tempo posso perceber melhora?",
+                a: <span>A maioria das clientes começa a notar uma diferença visual entre a <strong>3ª e a 5ª semana</strong> de uso diário. O resultado depende do tipo de pele e da consistência da rotina — quem usa todo dia, sem pular, tende a ver mudanças mais rápidas. O ideal é manter o uso por pelo menos 60 dias para resultados mais duradouros.</span>
+              },
+              {
+                q: "Como aplicar?",
+                a: "Aplique uma pequena quantidade nas áreas com manchas ou escurecimento e massageie suavemente até absorver. Ideal para uso diário, preferencialmente à noite."
+              },
+              {
+                q: "Posso usar todos os dias?",
+                a: "Sim, o uso diário faz parte da rotina recomendada. É justamente a consistência que garante os melhores resultados ao longo do tempo."
+              },
+              {
+                q: "Qual o prazo de entrega?",
+                a: "O prazo de entrega é de 4 a 15 dias úteis após a confirmação do pedido, para todo o Brasil. O frete é 100% grátis."
+              },
+              {
+                q: "Este site é seguro? Posso confiar?",
+                a: <span>Sim, e com toda a confiança. O checkout é processado pela <strong>Coinzz</strong>, uma plataforma de pagamento regulamentada, auditada e utilizada por milhares de lojistas em todo o Brasil. Seus dados bancários e pessoais são protegidos com <strong>criptografia SSL de ponta a ponta</strong> — o mesmo padrão de segurança dos maiores bancos do país. Nenhuma informação do seu cartão fica armazenada em nosso sistema. Após a compra, você recebe uma confirmação imediata por e-mail com todos os detalhes do seu pedido. Comprar aqui é tão seguro quanto comprar em qualquer grande loja online — com a vantagem de ser um produto exclusivo que você não encontra em outro lugar.</span>
+              },
+            ].map((item, i) => (
+              <details key={i} className="group bg-white">
+                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer text-lg font-semibold text-foreground list-none select-none hover:bg-[#ffe8f2]/40 transition-colors">
+                  {item.q}
+                  <span className="shrink-0 text-[#c2185b] text-2xl font-light transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div className="px-6 pb-5 text-base text-foreground/70 leading-relaxed">{item.a}</div>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 
