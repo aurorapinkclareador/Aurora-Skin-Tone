@@ -344,28 +344,28 @@ export default function Home() {
 
           <FadeIn delay={150} className="bg-white text-foreground rounded-3xl p-8 shadow-2xl relative">
             <div className="absolute -top-4 -right-4 bg-yellow-400 text-yellow-900 font-bold px-4 py-1 rounded-full shadow-lg transform rotate-3">
-              Melhor Custo-Benefício
+              +3.200 clientes
             </div>
-            <h3 className="text-2xl font-bold mb-6 text-[#c2185b]">A Conta é Simples:</h3>
+            <h3 className="text-2xl font-bold mb-6 text-[#c2185b]">O que você ganha com o Aurora Pink:</h3>
             <div className="space-y-4 mb-8">
-              <div className="flex justify-between items-center pb-4 border-b border-gray-100 gap-2">
-                <span className="text-gray-500">Tratamentos estéticos em clínicas</span>
-                <span className="font-bold text-red-500 text-lg shrink-0">R$ 1.500+</span>
-              </div>
-              <div className="flex justify-between items-center pb-4 border-b border-gray-100 gap-2">
-                <span className="text-gray-500">Produtos importados temporários</span>
-                <span className="font-bold text-red-500 text-lg shrink-0">R$ 500+</span>
-              </div>
-              <div className="flex justify-between items-center pt-2 gap-2">
-                <span className="font-bold text-xl text-[#c2185b]">Aurora Pink (Hoje)</span>
-                <span className="font-black text-green-600 text-2xl shrink-0">R$ 187</span>
-              </div>
+              {[
+                { emoji: "🪞", text: "Olhar no espelho com mais leveza e confiança" },
+                { emoji: "👗", text: "Usar as roupas que você gosta sem ansiedade" },
+                { emoji: "⏱️", text: "Rotina de 30 segundos — cabe em qualquer dia" },
+                { emoji: "🏠", text: "Cuidado em casa, sem clínica, sem agendamento" },
+                { emoji: "🌎", text: "Frete grátis para qualquer lugar do Brasil" },
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-4 pb-3 border-b border-gray-50 last:border-0 last:pb-0">
+                  <span className="text-2xl shrink-0">{item.emoji}</span>
+                  <span className="text-gray-700 font-medium">{item.text}</span>
+                </div>
+              ))}
             </div>
             <button
               onClick={scrollToOffers}
               className="w-full py-4 rounded-xl font-bold text-lg bg-[#c2185b] text-white shadow-lg shadow-[#c2185b]/30 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
             >
-              Garantir Meu Tratamento Acessível
+              Quero Começar Agora
             </button>
           </FadeIn>
         </div>
@@ -375,8 +375,8 @@ export default function Home() {
       <section className="py-20 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Quem mora em São Paulo já testou e aprovou</h2>
-            <p className="text-lg text-foreground/70">Histórias reais de quem devolveu a uniformidade à pele com Aurora Pink.</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Mulheres reais que transformaram a própria pele</h2>
+            <p className="text-lg text-foreground/70">Histórias de quem devolveu a uniformidade à pele com Aurora Pink.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -402,8 +402,8 @@ export default function Home() {
                 avatar: avatarBeatriz,
                 age: "42 anos",
                 city: "Centro, São Bernardo do Campo - SP",
-                highlight: "Produto chegou rápido e o processo foi 100% seguro",
-                text: "Pedi na segunda à tarde e na terça de manhã estava na minha porta. O processo foi super simples e seguro. Uso toda manhã depois do banho, são literalmente 30 segundos. Em cinco semanas a pele ficou visivelmente mais uniforme. Vale cada centavo."
+                highlight: "O processo foi simples e minha pele agradeceu",
+                text: "Nunca tinha comprado nada assim pela internet, mas o processo foi super simples e seguro. Uso toda manhã depois do banho, são literalmente 30 segundos. Em cinco semanas a pele ficou visivelmente mais uniforme. Vale cada centavo."
               }
             ].map((t, i) => (
               <FadeIn key={i} delay={i * 100} className="bg-white p-7 rounded-3xl shadow-lg border border-[#ffe8f2] flex flex-col justify-between">
