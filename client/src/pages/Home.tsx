@@ -142,7 +142,7 @@ export default function Home() {
           onClick={scrollToOffers}
           className="w-full py-3.5 rounded-xl font-bold text-base text-white flex items-center justify-center gap-2"
         >
-          Ver Ofertas e Garantir o Meu <ArrowRight className="w-4 h-4" />
+          Garantir Meu Aurora Pink <ArrowRight className="w-4 h-4" />
         </button>
       </div>
 
@@ -178,7 +178,7 @@ export default function Home() {
             <div className="flex items-center gap-2.5 bg-white/80 border border-[#c2185b]/15 rounded-full px-5 py-2.5 shadow-sm">
               <div className="flex -space-x-2">
                 {[avatarAna, avatarJuliana, avatarBeatriz].map((av, idx) => (
-                  <img key={idx} src={av} alt="cliente" className="w-7 h-7 rounded-full object-cover border-2 border-white shrink-0" loading="lazy" />
+                  <img key={idx} src={av} alt="cliente" className="w-7 h-7 rounded-full object-cover border-2 border-white shrink-0" loading="eager" />
                 ))}
               </div>
               <span className="text-sm font-bold text-foreground/80"><span className="text-[#c2185b]">+3.200</span> clientes satisfeitas</span>
@@ -573,7 +573,7 @@ export default function Home() {
             </AccordionItem>
             <AccordionItem value="item-2">
               <AccordionTrigger className="text-lg">Em quanto tempo posso perceber melhora?</AccordionTrigger>
-              <AccordionContent className="text-base">Algumas pessoas percebem mudanças graduais ao longo do uso contínuo. A consistência é o fator mais importante para o resultado.</AccordionContent>
+              <AccordionContent className="text-base">A maioria das clientes começa a notar uma diferença visual entre a <strong>3ª e a 5ª semana</strong> de uso diário. O resultado depende do tipo de pele e da consistência da rotina — quem usa todo dia, sem pular, tende a ver mudanças mais rápidas. O ideal é manter o uso por pelo menos 60 dias para resultados mais duradouros.</AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-3">
               <AccordionTrigger className="text-lg">Como aplicar?</AccordionTrigger>
@@ -616,7 +616,7 @@ export default function Home() {
             onClick={scrollToOffers}
             className="w-full sm:w-auto px-10 py-6 rounded-2xl font-bold text-xl bg-[#c2185b] text-white shadow-[0_8px_30px_rgb(194,24,91,0.4)] hover:shadow-[0_8px_40px_rgb(194,24,91,0.6)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 mx-auto"
           >
-            Quero experimentar o Aurora Pink agora <ArrowRight className="w-6 h-6" />
+            Quero Garantir o Meu Aurora Pink Agora <ArrowRight className="w-6 h-6" />
           </button>
         </div>
       </section>
