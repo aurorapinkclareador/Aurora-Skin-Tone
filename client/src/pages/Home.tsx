@@ -495,18 +495,13 @@ export default function Home() {
             {/* Security badges */}
             <div className="mt-4 flex items-center justify-center gap-1.5 text-xs text-gray-500">
               <Lock className="w-3.5 h-3.5 text-green-600 shrink-0" />
-              <span>Pagamento 100% seguro e criptografado</span>
+              <span>Compra segura e protegida</span>
             </div>
-            <div className="mt-3 grid grid-cols-3 gap-2 text-center">
-              {[
-                { icon: "🔒", label: "SSL Seguro" },
-                { icon: "🛡️", label: "Dados Protegidos" },
-                { icon: "✅", label: "Compra Garantida" },
-              ].map((b, i) => (
-                <div key={i} className="bg-gray-50 border border-gray-100 rounded-xl py-2 px-1">
-                  <p className="text-base">{b.icon}</p>
-                  <p className="text-[10px] font-semibold text-gray-500 mt-0.5">{b.label}</p>
-                </div>
+            <div className="mt-3 flex items-center justify-center gap-2 flex-wrap">
+              {["PIX", "Cartão de Crédito", "Boleto"].map((method) => (
+                <span key={method} className="px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-full text-xs font-semibold text-gray-600">
+                  {method}
+                </span>
               ))}
             </div>
           </div>
