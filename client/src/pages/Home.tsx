@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Star, CheckCircle2, ShieldCheck, Clock, Check, ArrowRight } from "lucide-react";
+import { Star, CheckCircle2, ShieldCheck, Clock, Check, ArrowRight, Lock } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import img1 from '@assets/before_after_1.webp';
 import img2 from '@assets/before_after_3.webp';
@@ -491,6 +491,44 @@ export default function Home() {
             >
               Quero Garantir o Meu Agora
             </a>
+
+            {/* Security badges */}
+            <div className="mt-4 flex items-center justify-center gap-1.5 text-xs text-gray-500">
+              <Lock className="w-3.5 h-3.5 text-green-600 shrink-0" />
+              <span>Pagamento 100% seguro e criptografado</span>
+            </div>
+            <div className="mt-3 grid grid-cols-3 gap-2 text-center">
+              {[
+                { icon: "🔒", label: "SSL Seguro" },
+                { icon: "🛡️", label: "Dados Protegidos" },
+                { icon: "✅", label: "Compra Garantida" },
+              ].map((b, i) => (
+                <div key={i} className="bg-gray-50 border border-gray-100 rounded-xl py-2 px-1">
+                  <p className="text-base">{b.icon}</p>
+                  <p className="text-[10px] font-semibold text-gray-500 mt-0.5">{b.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Payment trust strip */}
+        <div className="max-w-md mx-auto mt-8 bg-white border border-green-100 rounded-2xl p-5 shadow-sm">
+          <p className="text-center text-sm font-bold text-gray-700 mb-3 flex items-center justify-center gap-2">
+            <ShieldCheck className="w-4 h-4 text-green-600" /> Por que seu pagamento está seguro?
+          </p>
+          <div className="space-y-2">
+            {[
+              "Checkout processado pela Coinzz, plataforma regulamentada e auditada",
+              "Criptografia de ponta a ponta — seus dados nunca ficam expostos",
+              "Você recebe confirmação do pedido imediatamente por e-mail",
+              "Milhares de pedidos processados com segurança todos os meses",
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                <Check className="w-4 h-4 text-green-600 shrink-0 mt-0.5" />
+                <span>{item}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
