@@ -587,6 +587,12 @@ export default function Home() {
               <AccordionTrigger className="text-lg">Qual o prazo de entrega?</AccordionTrigger>
               <AccordionContent className="text-base">O prazo de entrega é de 4 a 15 dias úteis após a confirmação do pedido, para todo o Brasil. O frete é 100% grátis.</AccordionContent>
             </AccordionItem>
+            <AccordionItem value="item-6">
+              <AccordionTrigger className="text-lg">Este site é seguro? Posso confiar?</AccordionTrigger>
+              <AccordionContent className="text-base">
+                Sim, e com toda a confiança. O checkout é processado pela <strong>Coinzz</strong>, uma plataforma de pagamento regulamentada, auditada e utilizada por milhares de lojistas em todo o Brasil. Seus dados bancários e pessoais são protegidos com <strong>criptografia SSL de ponta a ponta</strong> — o mesmo padrão de segurança dos maiores bancos do país. Nenhuma informação do seu cartão fica armazenada em nosso sistema. Após a compra, você recebe uma confirmação imediata por e-mail com todos os detalhes do seu pedido. Comprar aqui é tão seguro quanto comprar em qualquer grande loja online — com a vantagem de ser um produto exclusivo que você não encontra em outro lugar.
+              </AccordionContent>
+            </AccordionItem>
           </Accordion>
         </div>
       </section>
