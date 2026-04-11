@@ -454,8 +454,38 @@ export default function Home() {
 
       {/* 10. Offer Section */}
       <section id="ofertas" className="pt-32 pb-20 px-4 sm:px-6 bg-gradient-to-b from-[#ffe8f2] to-white scroll-mt-10">
+
+        {/* Price Anchoring */}
+        <FadeIn className="max-w-2xl mx-auto mb-16">
+          <p className="text-center text-sm font-bold uppercase tracking-widest text-[#c2185b] mb-4">Antes de ver o preço, compare</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-8">O que outras mulheres gastam para tentar resolver o mesmo problema:</h2>
+          <div className="space-y-3 mb-8">
+            {[
+              { label: "Consulta com dermatologista", price: "R$ 350 – 600", note: "por consulta, sem produto incluso", strike: true },
+              { label: "Sessão de laser clareador", price: "R$ 800 – 2.000", note: "por sessão, mínimo 4–6 sessões", strike: true },
+              { label: "Cremes importados conhecidos", price: "R$ 400 – 900", note: "por pote, sem garantia de resultado", strike: true },
+            ].map((item, i) => (
+              <div key={i} className="flex items-center justify-between bg-white border border-red-100 rounded-2xl px-5 py-4 shadow-sm">
+                <div>
+                  <p className="font-semibold text-foreground/80 text-sm">{item.label}</p>
+                  <p className="text-xs text-foreground/50 mt-0.5">{item.note}</p>
+                </div>
+                <p className="text-lg font-black text-red-400 line-through shrink-0 ml-4">{item.price}</p>
+              </div>
+            ))}
+            <div className="flex items-center justify-between bg-[#c2185b] rounded-2xl px-5 py-4 shadow-lg">
+              <div>
+                <p className="font-bold text-white text-sm">Aurora Pink — rotina diária em casa</p>
+                <p className="text-xs text-white/80 mt-0.5">Sem consultas, sem agendamentos, sem deslocamento</p>
+              </div>
+              <p className="text-2xl font-black text-white shrink-0 ml-4">R$ 187</p>
+            </div>
+          </div>
+          <p className="text-center text-foreground/60 text-sm">A mesma intenção de cuidar da pele — com uma fração do custo.</p>
+        </FadeIn>
+
         <div className="max-w-5xl mx-auto text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Escolha o Melhor Tratamento para Você</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Garanta o Seu Aurora Pink</h2>
           <p className="text-xl text-foreground/80">Lembre-se: o <strong>uso contínuo</strong> é o que gera os melhores resultados.</p>
         </div>
 
