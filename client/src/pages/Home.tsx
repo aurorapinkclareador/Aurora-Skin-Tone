@@ -148,12 +148,7 @@ export default function Home() {
 
       {/* 0. Top Trust Bar */}
       <div className="trust-bar shadow-sm relative z-40">
-        Pagamento na entrega para todo o estado de São Paulo
-      </div>
-      <div className="bg-white border-b border-[#c2185b]/10">
-        <p className="text-center py-2.5 text-sm md:text-base font-medium text-[#c2185b]">
-          Entrega rápida para São Paulo – em muitos casos em até <span className="font-bold">24 horas</span>.
-        </p>
+        Frete 100% grátis para todo o Brasil
       </div>
 
       {/* 1. Hero */}
@@ -175,7 +170,7 @@ export default function Home() {
             Quero Suavizar Manchas Escuras <ArrowRight className="w-5 h-5" />
           </button>
           <div className="flex items-center justify-center gap-2 mt-4 text-sm text-[#c2185b] font-medium">
-            <ShieldCheck className="w-4 h-4" /> Pagamento Seguro na Entrega
+            <ShieldCheck className="w-4 h-4" /> Frete Grátis + Pagamento 100% Seguro
           </div>
 
           {/* Social proof bar */}
@@ -407,8 +402,8 @@ export default function Home() {
                 avatar: avatarBeatriz,
                 age: "42 anos",
                 city: "Centro, São Bernardo do Campo - SP",
-                highlight: "Produto chegou em menos de 24h, sem pagar nada na hora",
-                text: "Pedi na segunda à tarde e na terça de manhã estava na minha porta. Paguei só na entrega, o que me deu muito mais segurança. Uso toda manhã depois do banho, são literalmente 30 segundos. Em cinco semanas a pele ficou visivelmente mais uniforme. Vale cada centavo."
+                highlight: "Produto chegou rápido e o processo foi 100% seguro",
+                text: "Pedi na segunda à tarde e na terça de manhã estava na minha porta. O processo foi super simples e seguro. Uso toda manhã depois do banho, são literalmente 30 segundos. Em cinco semanas a pele ficou visivelmente mais uniforme. Vale cada centavo."
               }
             ].map((t, i) => (
               <FadeIn key={i} delay={i * 100} className="bg-white p-7 rounded-3xl shadow-lg border border-[#ffe8f2] flex flex-col justify-between">
@@ -464,13 +459,16 @@ export default function Home() {
           <p className="text-xl text-foreground/80">Lembre-se: o <strong>uso contínuo</strong> é o que gera os melhores resultados.</p>
         </div>
 
-        <div className="flex flex-col lg:flex-row justify-center gap-8 max-w-5xl mx-auto items-center lg:items-stretch">
+        <div className="flex justify-center max-w-5xl mx-auto">
 
-          {/* Oferta Essencial */}
-          <div className="w-full lg:w-1/2 max-w-md bg-white rounded-3xl p-8 shadow-xl border-2 border-transparent flex flex-col">
-            <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold text-foreground mb-2">Oferta Essencial</h3>
-              <p className="text-lg text-foreground/60">1 Unidade Aurora Pink</p>
+          {/* Oferta Única */}
+          <div className="w-full max-w-md bg-white rounded-3xl p-8 shadow-2xl border-4 border-[#c2185b] flex flex-col relative">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#c2185b] text-white px-6 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider shadow-lg flex items-center gap-2">
+              <Star className="w-4 h-4 fill-current" /> OFERTA ESPECIAL
+            </div>
+            <div className="text-center mb-6 mt-4">
+              <h3 className="text-2xl font-bold text-foreground mb-2">Aurora Pink</h3>
+              <p className="text-lg text-foreground/60">1 Unidade</p>
             </div>
             <div className="flex justify-center mb-6 h-48">
               <img src={img5} alt="1 Unidade Aurora Pink" className="h-full object-contain" loading="lazy" />
@@ -482,48 +480,16 @@ export default function Home() {
                 <span className="text-5xl font-black text-[#c2185b]">R$ 187</span>
               </div>
               <p className="text-sm font-bold text-[#c2185b] mt-3">O melhor custo-benefício do mercado</p>
-              <p className="text-sm text-green-600 font-bold mt-2">✓ Pagamento na Entrega (SP)</p>
-            </div>
-            <a
-              href="https://entrega.logzz.com.br/pay/memr8ydd3/ocjfr-1-unidade"
-              onClick={() => trackEvent("InitiateCheckout", { currency: "BRL", value: 187.00, num_items: 1 }, { content_name: "Aurora Pink 1 Unidade", value: 187.00, num_items: 1 })}
-              className="block w-full py-5 rounded-2xl font-bold text-lg bg-gray-900 text-white text-center shadow-lg hover:bg-black hover:shadow-xl transition-all duration-300"
-            >
-              Comprar 1 Unidade
-            </a>
-          </div>
-
-          {/* Mais Vendida */}
-          <div className="w-full lg:w-1/2 max-w-md bg-white rounded-3xl p-8 shadow-2xl border-4 border-[#c2185b] flex flex-col relative lg:scale-105 z-10">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#c2185b] text-white px-6 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider shadow-lg flex items-center gap-2">
-              <Star className="w-4 h-4 fill-current" /> MAIS VENDIDA
-            </div>
-            <div className="text-center mb-6 mt-4">
-              <h3 className="text-3xl font-bold text-[#c2185b] mb-2">Tratamento Completo</h3>
-              <p className="text-xl font-bold text-foreground/80">2 Unidades Aurora Pink</p>
-              <p className="text-sm text-[#c2185b] font-semibold mt-2">Recomendado para uso contínuo</p>
-            </div>
-            <div className="flex justify-center mb-6 h-48 relative">
-              <img src={img5} alt="Aurora Pink" className="h-full object-contain -mr-8 z-10" loading="lazy" />
-              <img src={img5} alt="Aurora Pink" className="h-full object-contain" loading="lazy" />
-            </div>
-            <div className="text-center mb-8 flex-grow">
-              <p className="text-gray-400 line-through text-xl">De R$ 347,00</p>
-              <div className="flex items-end justify-center gap-2 mt-2">
-                <span className="text-2xl font-bold text-[#c2185b]">Por</span>
-                <span className="text-6xl font-black text-[#c2185b]">R$ 247</span>
-              </div>
-              <p className="text-sm font-bold text-[#c2185b] mt-3">R$123,50 por unidade — Economia máxima</p>
-              <p className="text-green-600 font-bold mt-2 flex items-center justify-center gap-1">
-                <CheckCircle2 className="w-4 h-4" /> Pagamento na Entrega (SP)
+              <p className="text-sm text-green-600 font-bold mt-2 flex items-center justify-center gap-1">
+                <CheckCircle2 className="w-4 h-4" /> Frete 100% Grátis para Todo o Brasil
               </p>
             </div>
             <a
-              href="https://entrega.logzz.com.br/pay/memr8ydd3/2-unidades-r24700"
-              onClick={() => trackEvent("InitiateCheckout", { currency: "BRL", value: 247.00, num_items: 2 }, { content_name: "Aurora Pink 2 Unidades", value: 247.00, num_items: 2 })}
+              href="https://app.coinzz.com.br/checkout/1-unidade-lzdxz-0/697252a34c1e0"
+              onClick={() => trackEvent("InitiateCheckout", { currency: "BRL", value: 187.00, num_items: 1 }, { content_name: "Aurora Pink 1 Unidade", value: 187.00, num_items: 1 })}
               className="block w-full py-5 rounded-2xl font-bold text-xl bg-[#c2185b] text-white text-center shadow-[0_8px_30px_rgb(194,24,91,0.4)] hover:shadow-[0_8px_40px_rgb(194,24,91,0.6)] hover:-translate-y-1 transition-all duration-300"
             >
-              Comprar 2 Unidades
+              Quero Garantir o Meu Agora
             </a>
           </div>
         </div>
@@ -555,12 +521,8 @@ export default function Home() {
               <AccordionContent className="text-base">Sim, o uso diário faz parte da rotina recomendada. É justamente a consistência que garante os melhores resultados ao longo do tempo.</AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-5">
-              <AccordionTrigger className="text-lg">Como funciona o pagamento na entrega?</AccordionTrigger>
-              <AccordionContent className="text-base">Clientes de São Paulo pagam apenas quando recebem o produto em mãos. Sem riscos, sem cobranças antecipadas.</AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-6">
               <AccordionTrigger className="text-lg">Qual o prazo de entrega?</AccordionTrigger>
-              <AccordionContent className="text-base">Para clientes de São Paulo, a entrega pode ocorrer em até 24 horas dependendo da região. Pedidos são processados com máxima prioridade.</AccordionContent>
+              <AccordionContent className="text-base">O prazo de entrega é de 4 a 15 dias úteis após a confirmação do pedido, para todo o Brasil. O frete é 100% grátis.</AccordionContent>
             </AccordionItem>
           </Accordion>
         </div>
